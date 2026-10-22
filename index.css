@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+body {
+ margin: 0;
+ font-family: 'Poppins', sans-serif;
+ background-color: #F5F3EB;
+ font-weight: 400;
+}
+
+header {
+ background-color: #6B7650;
+ padding: 15px;
+
+}
+
+header h1{
+ margin: 5px;
+ background-color: #6B7650;
+ color: #FFFFFF;
+ font-weight: 700;
+
+}
+
+header p{
+ margin: 10px;
+ background-color: #6B7650;
+ color: #F0F0E5;
+}
+
+form h3{
+ text-align: left;
+ background-color: white;
+ margin: 0;
+
+}
+
+p.pergunta{
+ background-color: white;
+ font-size: 90%;
+}
+
+section.anotando{
+ margin: 30px;
+}
+
+form{
+ display: flex;
+ flex-direction: column; /* coloca como coluna o formato */
+ gap: 10px; /* espaço entre os botões*/
+ background-color: white;
+ padding: 20px; /* espaço interno */
+ border-radius: 12px; /* Borda arredondada*/
+ max-width: 400px; /define largura/
+ margin: auto;
+ width: 90%;
+}
+
+label{
+ background-color: white;
+ font-size: 90%;
+}
+
+input{
+ padding: 12px;
+ border: 1px solid #D8DCCF;
+ border-radius: 8px;
+ font-size: 15px;
+ box-sizing: border-box;
+ background-color: white;
+ outline: none;
+ box-sizing: border-box;
+}
+
+button{
+ border-radius: 8px;
+ padding: 14px;
+ background-color:#6B7650;
+ color: #F5F3EB;
+}
+
+
+h2 {
+ text-align: center;
+ margin: 0px;
+}
