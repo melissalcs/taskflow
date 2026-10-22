@@ -10,7 +10,6 @@ body {
 header {
  background-color: #6B7650;
  padding: 15px;
-
 }
 
 header h1{
@@ -50,7 +49,7 @@ form{
  background-color: white;
  padding: 20px; /* espaço interno */
  border-radius: 12px; /* Borda arredondada*/
- max-width: 400px; /define largura/
+ max-width: 400px; /*define largura*/
  margin: auto;
  width: 90%;
 }
@@ -79,7 +78,31 @@ button{
 }
 
 
-h2 {
+.lista h2 {
  text-align: center;
- margin: 0px;
 }
+
+.lista ul {
+    max-width: 400px;
+    width: 90%;
+    box-sizing: border-box;
+    margin: 20px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.lista li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.lista li p {
+    margin: 0;
+}
+
+.lista input:checked + p {
+    text-decoration: line-through;
+}
+
