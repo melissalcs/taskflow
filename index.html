@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title>TaskFlow</title>
         <link rel="stylesheet" href="index.css">
+        <script src="javascript.js" defer></script>
     </head>
     <body>
     <!-- Cabeçalho-->
@@ -16,7 +17,7 @@
         <main>
             <section class="anotando">
 
-            <form>
+            <form id="tarefa-form">
                 <h3> Anote suas tarefas</h3>
                 <p class="pergunta">O que você precisa fazer hoje?</p>
                 <label for="tarefa">Nova tarefa</label>
@@ -36,14 +37,14 @@
             <section class="lista">
                 <h2>Minhas tarefas</h2>
 
-                <ul style="list-style: none;">
+                <ul id="lista-tarefas" style="list-style: none;">
                     <li>
                         <input type="checkbox">
-                       <p>Estudar JavaScript</p> 
+                        <p>Estudar JavaScript</p>
                     </li>
                     <li>
                         <input type="checkbox">
-                        <p>Estudar Linguagem Banco de dados</p>
+                        <p>Estudar Banco de dados</p>
                     </li>
                 </ul>
             </section>
