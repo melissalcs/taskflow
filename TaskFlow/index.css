@@ -50,7 +50,7 @@ form{
  background-color: white;
  padding: 20px; /* espaço interno */
  border-radius: 12px; /* Borda arredondada*/
- max-width: 400px; /define largura/
+ max-width: 400px; /*define largura*/
  margin: auto;
  width: 90%;
 }
@@ -78,11 +78,67 @@ button{
  color: #F5F3EB;
 }
 
-section.lista {
 
-}
-h2 {
+.lista h2 {
  text-align: center;
- margin: 0px;
+}
 
+.lista ul {
+    max-width: 400px;
+    width: 90%;
+    box-sizing: border-box;
+    margin: 20px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.lista li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.lista li p {
+    margin: 0;
+}
+
+/* Estiliza o botão Excluir */
+.lista li button {
+    background-color: #F5F3EB; /* Fundo creme, igual ao da página */
+    color: #6B7650; /* Texto verde-oliva */
+    border: 1px solid #D8DCCF; /* Borda discreta */
+    border-radius: 8px; /* Cantos arredondados */
+    padding: 7px 12px; /* Deixa o botão compacto */
+    font-family: 'Poppins', sans-serif; /* Mantém a fonte do projeto */
+    font-size: 12px; /* Deixa o texto menor */
+    cursor: pointer; /* Mostra a mãozinha ao passar o mouse */
+    transition: 0.2s; /* Suaviza a mudança de cor */
+}
+
+/* Efeito ao passar o mouse */
+
+/* Estiliza o botão Excluir */
+.lista li button {
+    background-color: #F5F3EB; /* Fundo creme, igual ao da página */
+    color: #6B7650; /* Texto verde-oliva */
+    border: 1px solid #D8DCCF; /* Borda discreta */
+    border-radius: 8px; /* Cantos arredondados */
+    padding: 5px 12px; /* Deixa o botão compacto */
+    font-family: 'Poppins', sans-serif; /* Mantém a fonte do projeto */
+    font-size: 12px; /* Deixa o texto menor */
+    cursor: pointer; /* Mostra a mãozinha ao passar o mouse */
+    transition: 0.2s; /* Suaviza a mudança de cor */
+}
+
+/* Efeito ao passar o mouse */
+.lista li button:hover {
+    background-color: #A6534B; /* Fundo avermelhado */
+    color: white; /* Texto branco */
+    border-color: #A6534B; /* Combina a borda com o fundo */
+}
+
+
+.lista input:checked + p {
+    text-decoration: line-through;
 }
