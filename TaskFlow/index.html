@@ -28,7 +28,6 @@
                         placeholder="Ex: Estudar JavaScript"
                         required
                     >
-
                     <button type="submit">+ Adicionar tarefa</button>
                 </form>
             </section>
@@ -44,6 +43,25 @@
                         
                     </li>
                 </ul>
+
+                <!-- Janela flutuante para editar uma tarefa -->
+                <div id="modal-editar" class="modal">
+                    <div class="modal-conteudo">
+                        <h2>Editar tarefa</h2>
+                        <p>Faça as alterações necessárias.</p>
+                        <input
+                         type="text" 
+                         id="texto-editar"
+                         name="editar" 
+                         >
+                        <div class="botoes-modal">
+                            <button type="button" id="cancelar-edicao">Cancelar</button>
+                            <button type="button" id="salvar-edicao">Salvar</button>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
             </section>
         </main>
     </body>
