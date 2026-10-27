@@ -96,11 +96,14 @@ button{
 .lista li {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
+    width: 100%;
+    margin-bottom: 15px; /* Espaço entre as tarefas */
 }
 
 .lista li p {
-    margin: 0;
+    margin:0;
+    flex: 1;
 }
 
 /* Estiliza o botão Excluir */
@@ -118,18 +121,6 @@ button{
 
 /* Efeito ao passar o mouse */
 
-/* Estiliza o botão Excluir */
-.lista li button {
-    background-color: #F5F3EB; /* Fundo creme, igual ao da página */
-    color: #6B7650; /* Texto verde-oliva */
-    border: 1px solid #D8DCCF; /* Borda discreta */
-    border-radius: 8px; /* Cantos arredondados */
-    padding: 5px 12px; /* Deixa o botão compacto */
-    font-family: 'Poppins', sans-serif; /* Mantém a fonte do projeto */
-    font-size: 12px; /* Deixa o texto menor */
-    cursor: pointer; /* Mostra a mãozinha ao passar o mouse */
-    transition: 0.2s; /* Suaviza a mudança de cor */
-}
 
 /* Efeito ao passar o mouse */
 .lista li button:hover {
@@ -142,3 +133,4 @@ button{
 .lista input:checked + p {
     text-decoration: line-through;
 }
+
