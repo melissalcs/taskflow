@@ -136,7 +136,7 @@ button{
 
 
 .modal {
-    /* Deixa a janela escondida inicialmente */
+    display: none;/* Deixa a janela escondida inicialmente */
     position: fixed; /* Fixa a janela em relação à tela */
     top: 0;
     left: 0;
@@ -168,14 +168,15 @@ button{
 /* Texto de apoio */
 .modal-conteudo p {
     color: #555;
+    
 }
 
 .botoes-modal{
     display: flex;
+    justify-content: flex-end;
     gap: 10px;
     padding: 10px;
-    
-    
+
 }
 
 

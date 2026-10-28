@@ -51,6 +51,9 @@ formulario.addEventListener('submit', function(event) { // Escuta quando o formu
         } 
 
         texto.textContent = novoTexto;
+
+        const editarTarefa = document.getElementById('modal-editar');
+        
     });
         
 });
