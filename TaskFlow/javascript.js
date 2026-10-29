@@ -2,6 +2,11 @@
 const tarefa = document.getElementById('tarefa'); // Busca o campo de texto pelo ID "tarefa"
 const formulario = document.getElementById('tarefa-form'); // Busca o formulário pelo ID "tarefa-form"
 const listaTarefas = document.getElementById('lista-tarefas'); // Busca a lista onde as tarefas serão adicionadas
+const editarTarefa = document.getElementById('modal-editar');
+const editarTexto = document.getElementById('texto-editar'); 
+const edicaoSalvar = document.getElementById('salvar-edicao');
+const edicaoCancelar = document.getElementById('cancelar-edicao');
+let textoAtual = null; //vamos usar para guardar qual tarefa original precisa ser atualizada.
 
 formulario.addEventListener('submit', function(event) { // Escuta quando o formulário é enviado
     event.preventDefault(); // Impede que a página recarregue ao enviar o formulário
@@ -39,21 +44,20 @@ formulario.addEventListener('submit', function(event) { // Escuta quando o formu
     });
 
     botaoEditar.addEventListener('click', function() {
-        const novoTexto = prompt('Edite a tarefa'); 
-        // Atualiza o texto da tarefa na tela
-
-       if (novoTexto == null) {
-         return;
-        }
-
-       if (novoTexto == '') {
-            return;
-        } 
-
-        texto.textContent = novoTexto;
-
-        const editarTarefa = document.getElementById('modal-editar');
-        
+        textoAtual = texto;
+        editarTexto.value = texto.textContent; //copia o texto da tarefa para o campo.
+        editarTarefa.style.display = 'flex'; //mostra o modal centralizado
+    
     });
-        
+
+
+     edicaoSalvar.addEventListener('click', function() {
+        textoAtual.textContent = editarTexto.value;
+        editarTarefa.style.display = 'none';
+     });
+
+     edicaoCancelar.addEventListener('click', function() {
+        editarTarefa.style.display = 'none';
+     });
+    
 });
