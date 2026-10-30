@@ -1,4 +1,3 @@
-
 const tarefa = document.getElementById('tarefa'); // Busca o campo de texto pelo ID "tarefa"
 const formulario = document.getElementById('tarefa-form'); // Busca o formulário pelo ID "tarefa-form"
 const listaTarefas = document.getElementById('lista-tarefas'); // Busca a lista onde as tarefas serão adicionadas
@@ -6,7 +5,23 @@ const editarTarefa = document.getElementById('modal-editar');
 const editarTexto = document.getElementById('texto-editar'); 
 const edicaoSalvar = document.getElementById('salvar-edicao');
 const edicaoCancelar = document.getElementById('cancelar-edicao');
+const tarefas = [];
+const tarefasSalvas = localStorage.getItem('minhaTarefa');
+
 let textoAtual = null; //vamos usar para guardar qual tarefa original precisa ser atualizada.
+
+     edicaoSalvar.addEventListener('click', function() {
+       const indice = tarefas.indexOf(textoAtual.textContent);
+        tarefas[indice] = editarTexto.value;
+        textoAtual.textContent = editarTexto.value;
+
+        localStorage.setItem('minhaTarefa', JSON.stringify(tarefas));
+        editarTarefa.style.display = 'none';
+     });
+
+     edicaoCancelar.addEventListener('click', function() {
+        editarTarefa.style.display = 'none';
+     });
 
 formulario.addEventListener('submit', function(event) { // Escuta quando o formulário é enviado
     event.preventDefault(); // Impede que a página recarregue ao enviar o formulário
@@ -40,7 +55,11 @@ formulario.addEventListener('submit', function(event) { // Escuta quando o formu
     tarefa.value = ''; // Limpa o campo de texto depois de adicionar a tarefa
 
     botaoExcluir.addEventListener('click', function() {
+    const indice = tarefas.indexOf(texto.textContent);
+    tarefas.splice(indice, 1);
+    localStorage.setItem('minhaTarefa', JSON.stringify(tarefas));
     novaTarefa.remove();
+    
     });
 
     botaoEditar.addEventListener('click', function() {
@@ -49,15 +68,6 @@ formulario.addEventListener('submit', function(event) { // Escuta quando o formu
         editarTarefa.style.display = 'flex'; //mostra o modal centralizado
     
     });
-
-
-     edicaoSalvar.addEventListener('click', function() {
-        textoAtual.textContent = editarTexto.value;
-        editarTarefa.style.display = 'none';
-     });
-
-     edicaoCancelar.addEventListener('click', function() {
-        editarTarefa.style.display = 'none';
-     });
-    
+     tarefas.push(textoTarefa);
+     localStorage.setItem('minhaTarefa', JSON.stringify(tarefas));
 });
