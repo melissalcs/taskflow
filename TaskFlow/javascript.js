@@ -5,9 +5,11 @@ const editarTarefa = document.getElementById('modal-editar');
 const editarTexto = document.getElementById('texto-editar'); 
 const edicaoSalvar = document.getElementById('salvar-edicao');
 const edicaoCancelar = document.getElementById('cancelar-edicao');
+let textoAtual = null; 
+
 let tarefas = []; //contém os textos recuperados.
 const tarefasSalvas = localStorage.getItem('minhaTarefa');
- let textoAtual = null; //vamos usar para guardar qual tarefa original precisa ser atualizada.
+ //vamos usar para guardar qual tarefa original precisa ser atualizada.
 
       if (tarefasSalvas) {
          // Aqui vamos recuperar as tarefas salvas
@@ -33,7 +35,19 @@ const tarefasSalvas = localStorage.getItem('minhaTarefa');
       novaTarefa.appendChild(botaoExcluir); // Adiciona o botão Excluir depois do texto
       novaTarefa.appendChild(botaoEditar); // Adiciona o botão Editar depois do botão Excluir
 
+      botaoExcluir.addEventListener('click', function() {
+         const indice = tarefas.indexOf(texto.textContent);
+         tarefas.splice(indice, 1);
+         localStorage.setItem('minhaTarefa', JSON.stringify(tarefas));
+         novaTarefa.remove();
+      });
 
+      botaoEditar.addEventListener('click', function() {
+         textoAtual = texto;
+         editarTexto.value = texto.textContent; //copia o texto da tarefa para o campo.
+         editarTarefa.style.display = 'flex'; //mostra o modal centralizado
+      
+      });
       return novaTarefa;
       }
 
@@ -57,28 +71,17 @@ const tarefasSalvas = localStorage.getItem('minhaTarefa');
       event.preventDefault(); // Impede que a página recarregue ao enviar o formulário
 
       const textoTarefa = tarefa.value; // Pega o texto digitado no campo
+      const novaTarefa = criarTarefa(textoTarefa);
 
-      
       listaTarefas.appendChild(novaTarefa); // Adiciona a nova tarefa à lista visível na página
-
       tarefa.value = ''; // Limpa o campo de texto depois de adicionar a tarefa
 
-      botaoExcluir.addEventListener('click', function() {
-      const indice = tarefas.indexOf(texto.textContent);
-      tarefas.splice(indice, 1);
-      localStorage.setItem('minhaTarefa', JSON.stringify(tarefas));
-      novaTarefa.remove();
-      
-      });
-
-      botaoEditar.addEventListener('click', function() {
-         textoAtual = texto;
-         editarTexto.value = texto.textContent; //copia o texto da tarefa para o campo.
-         editarTarefa.style.display = 'flex'; //mostra o modal centralizado
-      
-      });
      tarefas.push(textoTarefa);
      localStorage.setItem('minhaTarefa', JSON.stringify(tarefas));
+   
+});
 
-     
+    tarefas.forEach(function(item) {
+    const novaTarefa = criarTarefa(item); //usamos item para representar cada tarefa individualmente.
+    listaTarefas.appendChild(novaTarefa);
 });
